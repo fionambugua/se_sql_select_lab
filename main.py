@@ -77,4 +77,12 @@ FROM orderDetails;""",
 
 # STEP 9
 # Replace None with your code
+df_day_month_year = pd.read_sql("""
+    SELECT orderDate,
+           SUBSTR(orderDate, 9, 2) AS day,
+           SUBSTR(orderDate, 6, 2) AS month,
+           SUBSTR(orderDate, 1, 4) AS year
+    FROM orders
+""", conn)
+
 conn.close()
