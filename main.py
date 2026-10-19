@@ -9,7 +9,12 @@ conn = sqlite3.connect("data.sqlite")
 
 # STEP 2
 # Replace None with your code
-df_first_five = None
+df_first_five = pd.read_sql(
+    """
+SELECT employeeNumber, lastName
+FROM employees;""",
+    conn,
+)
 
 # STEP 3
 # Replace None with your code
