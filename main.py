@@ -27,7 +27,12 @@ FROM employees;""",
 
 # STEP 4
 # Replace None with your code
-df_alias = None
+df_alias = pd.read_sql(
+    """
+SELECT lastName, employeeNumber AS ID
+FROM employees;""",
+    conn,
+)
 
 # STEP 5
 # Replace None with your code
