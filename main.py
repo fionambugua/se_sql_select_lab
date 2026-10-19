@@ -36,7 +36,17 @@ FROM employees;""",
 
 # STEP 5
 # Replace None with your code
-df_executive = None
+df_executive = pd.read_sql(
+    """
+SELECT
+    CASE jobTitle
+        WHEN "Sales Manager (APAC)" OR "Sale Manager (EMEA)" OR "Sales Manager (NA)" 
+        THEN "Manager"
+        ELSE "Not Manager"
+        END AS role
+FROM employees;""",
+    conn,
+)
 
 # STEP 6
 # Replace None with your code
