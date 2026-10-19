@@ -59,7 +59,12 @@ FROM employees;""",
 
 # STEP 7
 # Replace None with your code
-df_short_title = None
+df_short_title = pd.read_sql(
+    """
+SELECT substr(jobTitle,1,2) AS short_title
+FROM employees;""",
+    conn,
+)
 
 # STEP 8
 # Replace None with your code
