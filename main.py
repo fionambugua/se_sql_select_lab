@@ -68,8 +68,13 @@ FROM employees;""",
 
 # STEP 8
 # Replace None with your code
-sum_total_price = None
+sum_total_price = pd.read_sql(
+    """
+SELECT round(priceEach * quantityOrdered)
+FROM orderDetails;""",
+    conn,
+).sum()
 
 # STEP 9
 # Replace None with your code
-df_day_month_year = None
+conn.close()
